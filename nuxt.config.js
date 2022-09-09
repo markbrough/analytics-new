@@ -1,6 +1,14 @@
+const routerBase = process.env.DEPLOY_ENV === 'WITH_SUBFOLDER' ? {
+  router: {
+    base: '/analytics-new/'
+  }
+} : {}
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+  generate: {
+    fallback: true
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -50,5 +58,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
+  ...routerBase
 }

@@ -15,7 +15,7 @@ jobs:
         npm install
     - name: Run build
       run: |
-        npm run generate
+        npm run gen-subfolder
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       if: ${{ github.ref == 'refs/heads/main' }}
