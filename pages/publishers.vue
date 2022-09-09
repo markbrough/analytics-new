@@ -27,15 +27,6 @@ export default {
   data() {
     return {
       publishers: [],
-      fields: ['Publisher Name',
-        'Publisher Registry Id',
-        'Activities',
-        'Organisations',
-        'Files',
-        'Total File Size',
-        'Hierarchies (count)',
-        'Reporting Orgs In Data (count)'
-      ],
       valueLabel: 'Number of publishers',
       publishersByDate: []
     }
@@ -44,6 +35,23 @@ export default {
     LineChart
   },
   computed: {
+    fields() {
+      const _fields = ['Publisher Name',
+        'Publisher Registry Id',
+        'Activities',
+        'Organisations',
+        'Files',
+        'Total File Size',
+        'Hierarchies (count)',
+        'Reporting Orgs In Data (count)'
+      ]
+      return _fields.map(field => {
+        return {
+          key: field,
+          sortable: true
+        }
+      })
+    },
     chartData() {
       const colours = [
         "#6e40aa", "#6849b9", "#6153c7", "#585fd2", "#4e6cda", "#4479df", "#3988e1", "#2f96e0", "#26a5db", "#1fb3d3", "#1bc1c8", "#19cdbb", "#1bd9ac", "#20e29d", "#28ea8d", "#34f07e", "#44f470", "#56f665", "#6bf75c", "#81f558",
